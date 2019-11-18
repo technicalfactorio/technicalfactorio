@@ -12,7 +12,7 @@ function addSig(sig)
   return
 end
 for _,v in pairs(game.virtual_signal_prototypes) do
-  if (not v.special) and v.name~="signal-black" then
+  if (not v.special) then
     addSig({name=v.name,type="virtual"})
   end
 end
@@ -22,7 +22,7 @@ for _,f in pairs(game.fluid_prototypes) do
   end
 end
 for _,i in pairs(game.item_prototypes) do
-  if not i.has_flag("hidden") and i.name~="magic-lamp" then
+  if not i.has_flag("hidden") then
    addSig({name=i.name,type="item"})
   end
 end
