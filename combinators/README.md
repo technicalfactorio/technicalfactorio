@@ -13,3 +13,9 @@
 *   [DISK](https://mods.factorio.com/mod/disk)
     Capable of storing 512 full frames to a DISK item.
     Can be exported to string.
+
+## Scripts
+
+*   You can use [this script](generate_signal_index.lua) to generate constant
+    combinators containing all signals in the game with unique incrementing
+    numbers.
