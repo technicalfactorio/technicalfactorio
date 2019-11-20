@@ -4,6 +4,7 @@
     ([github](https://github.com/demodude4u/Factorio-FBSR))
 *   [Custom digit generator](https://tij.men/factorio/blueprint-tools/custom-digits/)
 *   [Autotorio](https://autotorio.com/) - blueprint manipulator
+*   [Factorio Blueprint Tools](https://christoph-frick.github.io/factorio-blueprint-tools/) - another blueprint manipulator
 
 ## Balancer testers
 
