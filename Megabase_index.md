@@ -1,5 +1,8 @@
 ## A listing of megabases categorized by map version
 
+### 0.18.19
+* https://www.reddit.com/r/technicalfactorio/comments/gels6c/20k_spm_hybrid_megabase/
+
 ### 0.18.6
 * https://www.reddit.com/r/factorio/comments/ejx2qj/my_first_megabase_2700_spm/
 
