@@ -9,11 +9,12 @@
 ### 0.18.6
 * https://www.reddit.com/r/factorio/comments/ejx2qj/my_first_megabase_2700_spm/
 
+### 0.18.0
+* https://www.reddit.com/r/factorio/comments/elcl7a/monolithic_10k_train_megabase_google_map_style/
 
 ### 0.17.79
 * https://www.reddit.com/r/technicalfactorio/comments/f3nje7/10k_spm_bot_base/
 * https://www.reddit.com/r/technicalfactorio/comments/f6r0f6/10k_spm_belts_a_bit_of_bots_v017/
-* https://www.reddit.com/r/factorio/comments/elcl7a/monolithic_10k_train_megabase_google_map_style/
 * https://www.reddit.com/r/factorio/comments/eyy1x6/vanilla_01779_megabase_42k_spm_45_ups/
 
 ### 0.17.69
