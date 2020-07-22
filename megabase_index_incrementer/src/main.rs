@@ -324,4 +324,13 @@ mod tests {
         let as_str = serde_json::to_string(&all).unwrap();
         let _t = serde_json::from_str::<Megabases>(&as_str).unwrap();
     }
+
+    #[test]
+    fn test_deser_file() {
+        let p = PathBuf::from("megabases.json");
+        if p.exists() {
+            let s = std::fs::read_to_string(&p).unwrap();
+            serde_json::from_str::<Megabases>(&s).unwrap();
+        }
+    }
 }
