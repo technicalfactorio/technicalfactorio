@@ -24,11 +24,17 @@ struct Megabases {
 
 #[derive(Debug, Default, Clone, Serialize, Deserialize, PartialEq, Eq, PartialOrd, Ord)]
 struct MegabaseMetadata {
+    /// The filename of this megabase.
     name: String,
+    /// The post/video showcasing the megabase.
     source_link: String,
+    /// The version of Factorio this save was saved with.
     factorio_version: FactorioVersion,
-    /// The hex-encoded String of the sha256 hash of this Savefile
+    /// The hex-encoded String of the sha256 hash of this Savefile.
     sha256: String,
+    /// The mirror of this save hosted by /u/mulark, if permitted by the map author.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    download_link_mirror: Option<String>,
 }
 
 #[derive(Debug, Default, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Ord)]
@@ -270,6 +276,7 @@ fn check_url_alive(url: &str) -> io::Result<()> {
 }
 
 fn run_factorio_and_find_savefile_version(savefile: &Path) -> FactorioVersion {
+    println!("Determining saved Factorio version");
     let out = std::process::Command::new(factorio_exe())
         .arg("--benchmark")
         .arg(savefile)
@@ -309,6 +316,7 @@ mod tests {
                 patch: 17,
             },
             sha256: "e8346b825adb2059de4710e1aa9431f97fb40026c375b0de8ea126a5f8b254f4".to_owned(),
+            download_link_mirror: None,
         };
         let all = Megabases {
             saves: vec![metadata],

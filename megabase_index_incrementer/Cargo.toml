@@ -3,6 +3,7 @@ name = "megabase_index_incrementer"
 version = "0.1.0"
 authors = ["mulark <mulark11@gmail.com>"]
 edition = "2018"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

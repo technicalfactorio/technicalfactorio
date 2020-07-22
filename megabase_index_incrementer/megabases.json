@@ -25,6 +25,18 @@
       "sha256": "132e5b89f411f6ee2fd7c6bb53ef9a0153e5205272389804d901a729de4ae64a"
     },
     {
+      "name": "Beautiful RailWorld Download.zip",
+      "source_link": "https://www.youtube.com/watch?v=oWHM9uKtgTU",
+      "factorio_version": "0.16.51",
+      "sha256": "fc8caba87fdcf1c4fad41fab0039b8e924b17637c32cf1979f0c86764c4e954f"
+    },
+    {
+      "name": "Factorio Spaghetti world with P0ober Ep40.zip",
+      "source_link": "https://www.youtube.com/watch?v=yUUT3C2Xevc",
+      "factorio_version": "0.18.17",
+      "sha256": "13788aa466a7d4b8b7969f45aaf97ed2ec12f80bbc6d56a0fcdf46f79c78f79d"
+    },
+    {
       "name": "Factory 3.zip",
       "source_link": "https://www.reddit.com/r/factorio/comments/ejx2qj/my_first_megabase_2700_spm/",
       "factorio_version": "0.17.79",
@@ -55,10 +67,28 @@
       "sha256": "c1ec9a5d8f980995d008376ec49a4599ed91378b9f1302d9e10785e4d2b7b96c"
     },
     {
+      "name": "flame_Sla bots 10000=54x187spm.zip",
+      "source_link": "https://www.reddit.com/r/technicalfactorio/comments/gvqze9/10k_spm_54187spm_bots_v018/",
+      "factorio_version": "0.18.29",
+      "sha256": "9a14b8b8d91e9b0499d09c6b2db13357344d1b2ebcdeb4ad721640db90164160"
+    },
+    {
+      "name": "flame_Sla prototype 10000spm=10x1000spm.zip",
+      "source_link": "https://www.reddit.com/r/technicalfactorio/comments/f6r0f6/10k_spm_belts_a_bit_of_bots_v017/",
+      "factorio_version": "0.17.79",
+      "sha256": "c629033749842b924d46539b1654840dccd1c945c28322edd0579ef8f9114f16"
+    },
+    {
       "name": "flame_Sla prototype 10000spm=122x82spm.zip",
       "source_link": "https://www.reddit.com/r/technicalfactorio/comments/f6r0f6/10k_spm_belts_a_bit_of_bots_v017/",
       "factorio_version": "0.17.79",
       "sha256": "8d6b5927fa353c2bf66a40496b143518bec2710560120d4e546afe2b59250ae5"
+    },
+    {
+      "name": "flame_Sla prototype 20000spm=20x1000spm v0.18 v2.zip",
+      "source_link": "https://www.reddit.com/r/technicalfactorio/comments/hbp4c5/20k_spm_201000spm_belts_v018/",
+      "factorio_version": "0.18.32",
+      "sha256": "8709f69c93ee936c5f314e32d4e5375c1348edd3a625941c0872ab62db5ac464"
     },
     {
       "name": "rain9441-5kspm-vanilla-railworld-2019-10-03.zip",
