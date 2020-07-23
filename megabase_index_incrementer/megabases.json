@@ -61,14 +61,16 @@
       "author": "https://www.reddit.com/user/Stevetrov/",
       "source_link": "https://www.reddit.com/r/factorio/comments/cz4jx5/15k_belt_megabase_runs_at_70ups_no_mods_proof_of/",
       "factorio_version": "0.17.66",
-      "sha256": "9342a0a259479a04096eab0b1e323021bd668bd70d5f9bf1ad3df9e611951360"
+      "sha256": "9342a0a259479a04096eab0b1e323021bd668bd70d5f9bf1ad3df9e611951360",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/Sandbox_250SPMv2_x_60_15K.zip"
     },
     {
       "name": "Stevetrov_train_10K_megabase_0_18.zip",
       "author": "https://www.reddit.com/user/Stevetrov/",
       "source_link": "https://www.reddit.com/r/factorio/comments/elcl7a/monolithic_10k_train_megabase_google_map_style/",
       "factorio_version": "0.18.0",
-      "sha256": "4ad077a646d010de975fb16c82820296dc700439ddd658925e33a3e485070014"
+      "sha256": "4ad077a646d010de975fb16c82820296dc700439ddd658925e33a3e485070014",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/Stevetrov_train_10K_megabase_0_18.zip"
     },
     {
       "name": "bot cell 10kspm LE.zip",
@@ -121,7 +123,8 @@
       "author": "https://www.reddit.com/user/Stevetrov/",
       "source_link": "https://www.reddit.com/r/factorio/comments/bdkrwz/10k_spm_belt_megabase_benchmarked_83ups_with_way/",
       "factorio_version": "0.17.31",
-      "sha256": "4b0f2609a9f9fe2cd642d59dad8be163b2464e3d988dedb3cc2e36ec8da1e1bb"
+      "sha256": "4b0f2609a9f9fe2cd642d59dad8be163b2464e3d988dedb3cc2e36ec8da1e1bb",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/stevetrovs_10K_mega_belt_base.zip"
     }
   ]
 }
