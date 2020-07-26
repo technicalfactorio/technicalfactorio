@@ -34,6 +34,16 @@ pub struct FactorioVersion {
     pub patch: u16,
 }
 
+impl FactorioVersion {
+    pub fn new(major: u16, minor: u16, patch: u16) -> Self {
+        FactorioVersion {
+            major,
+            minor,
+            patch,
+        }
+    }
+}
+
 impl ToString for FactorioVersion {
     fn to_string(&self) -> String {
         format!("{}.{}.{}", self.major, self.minor, self.patch)
@@ -87,5 +97,43 @@ impl PartialOrd for FactorioVersion {
         } else {
             Some(Ordering::Equal)
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_ser_fv() {
+        let fv = FactorioVersion {
+            major: 0,
+            minor: 17,
+            patch: 79,
+        };
+        let serialized = serde_json::to_string(&fv).unwrap();
+        assert_eq!(serialized, "\"0.17.79\"");
+    }
+
+    #[test]
+    fn test_deser_fv() {
+        let fv = serde_json::from_str::<FactorioVersion>("\"0.17.79\"").unwrap();
+        let fv_reference = FactorioVersion {
+            major: 0,
+            minor: 17,
+            patch: 79,
+        };
+        assert_eq!(fv, fv_reference);
+    }
+
+    #[test]
+    fn test_ser_fv_deser_fv_roundtrip() {
+        let fv = FactorioVersion {
+            major: 0,
+            minor: 17,
+            patch: 79,
+        };
+        let serialized = serde_json::to_string(&fv).unwrap();
+        let deserialized = serde_json::from_str::<FactorioVersion>(&serialized).unwrap();
+        assert_eq!(deserialized, fv);
     }
 }
