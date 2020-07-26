@@ -1,7 +1,5 @@
 //! Application to quickly index megabases.
 
-use std::cmp::Ordering;
-use std::convert::TryFrom;
 use std::convert::TryInto;
 use std::path::Path;
 use std::path::PathBuf;
@@ -9,99 +7,17 @@ use std::io;
 use std::io::Read;
 use std::io::stdin;
 use std::fs::File;
-use serde::Deserialize;
-use serde::Serialize;
+
 use std::io::Write;
 
 use sha2::Digest;
 
 use directories::BaseDirs;
 
-#[derive(Debug, Default, Clone, Serialize, Deserialize)]
-struct Megabases {
-    saves: Vec<MegabaseMetadata>,
-}
-
-#[derive(Debug, Default, Clone, Serialize, Deserialize, PartialEq, Eq, PartialOrd, Ord)]
-struct MegabaseMetadata {
-    /// The filename of this megabase.
-    name: String,
-    author: Option<String>,
-    /// The post/video showcasing the megabase.
-    source_link: String,
-    /// The version of Factorio this save was saved with.
-    factorio_version: FactorioVersion,
-    /// The hex-encoded String of the sha256 hash of this Savefile.
-    sha256: String,
-    /// The mirror of this save hosted by /u/mulark, if permitted by the map author.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    download_link_mirror: Option<String>,
-}
-
-#[derive(Debug, Default, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Ord)]
-#[serde(into = "String")]
-#[serde(try_from = "&str")]
-pub struct FactorioVersion {
-    major: u16,
-    minor: u16,
-    patch: u16,
-}
-
-impl ToString for FactorioVersion {
-    fn to_string(&self) -> String {
-        format!("{}.{}.{}", self.major, self.minor, self.patch)
-    }
-}
-
-impl From<FactorioVersion> for String {
-    fn from(fv: FactorioVersion) -> Self {
-        fv.to_string()
-    }
-}
-
-impl TryFrom<&str> for FactorioVersion {
-    type Error = String;
-    fn try_from(s: &str) -> Result<Self, Self::Error> {
-        let splits = s.split('.').collect::<Vec<_>>();
-        if splits.len() != 3 {
-            return Err("Incorrect number of periods present in version string".to_owned());
-        }
-        let splits = splits.iter().map(|x| x.parse()).collect::<Vec<_>>();
-        if splits.iter().all(|x| x.is_ok()) {
-            let splits = splits
-                .iter()
-                .map(|x| *(x.as_ref().unwrap()))
-                .collect::<Vec<_>>();
-            Ok(FactorioVersion {
-                major: splits[0],
-                minor: splits[1],
-                patch: splits[2],
-            })
-        } else {
-            Err("Unparseable/non-numeric data found within version subsection!".to_owned())
-        }
-    }
-}
-
-impl PartialOrd for FactorioVersion {
-    fn partial_cmp(&self, other: &FactorioVersion) -> Option<Ordering> {
-        if self.major > other.major {
-            Some(Ordering::Greater)
-        } else if self.major < other.major {
-            Some(Ordering::Less)
-        } else if self.minor > other.minor {
-            Some(Ordering::Greater)
-        } else if self.minor < other.minor {
-            Some(Ordering::Less)
-        } else if self.patch > other.patch {
-            Some(Ordering::Greater)
-        } else if self.patch < other.patch {
-            Some(Ordering::Less)
-        } else {
-            Some(Ordering::Equal)
-        }
-    }
-}
+mod lib;
+use lib::MegabaseMetadata;
+use lib::Megabases;
+use lib::FactorioVersion;
 
 fn main() -> io::Result<()> {
     loop {
@@ -389,6 +305,7 @@ fn run_factorio_and_find_savefile_version(savefile: &Path) -> FactorioVersion {
 
 #[cfg(test)]
 mod tests {
+    use crate::lib::FactorioVersion;
     use super::*;
 
     #[test]

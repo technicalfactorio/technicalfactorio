@@ -1,16 +1,26 @@
 [package]
 name = "megabase_index_incrementer"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["mulark <mulark11@gmail.com>"]
 edition = "2018"
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["bin"]
+bin = ["directories", "sha2", "regex", "ureq"]
+
+[lib]
+name = "megabase_index_incrementer"
+path = "src/lib.rs"
+
+[[bin]]
+name = "megabase_index_incrementer_bin"
+path = "src/main.rs"
 
 [dependencies]
-directories = "*"
-sha2 = "*"
+directories = {version = "*", optional = true}
+sha2 = {version = "*", optional = true}
 serde = {version = "*", features = ["derive"]}
 serde_json = "*"
-regex = "*"
-ureq = "*"
+regex = {version = "*", optional = true}
+ureq = {version = "*", optional = true}
