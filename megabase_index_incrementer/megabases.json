@@ -12,7 +12,8 @@
       "author": "https://www.reddit.com/user/swolar/",
       "source_link": "https://www.reddit.com/r/factorio/comments/b3x15f/10000_spm_modular_megabase_60ups/",
       "factorio_version": "0.16.51",
-      "sha256": "50b8d5c3d32acfc60930492f0d9dd85714ba69b5841ebdac66f1bb400e44ae23"
+      "sha256": "50b8d5c3d32acfc60930492f0d9dd85714ba69b5841ebdac66f1bb400e44ae23",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/10k+spm+modular.zip"
     },
     {
       "name": "10kspm-Cross-Megabase.zip",
@@ -26,7 +27,8 @@
       "author": "https://www.reddit.com/user/swolar/",
       "source_link": "https://www.reddit.com/r/technicalfactorio/comments/gels6c/20k_spm_hybrid_megabase/",
       "factorio_version": "0.18.19",
-      "sha256": "132e5b89f411f6ee2fd7c6bb53ef9a0153e5205272389804d901a729de4ae64a"
+      "sha256": "132e5b89f411f6ee2fd7c6bb53ef9a0153e5205272389804d901a729de4ae64a",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/20k+spm+hybrid-modular.zip"
     },
     {
       "name": "Beautiful RailWorld Download.zip",
@@ -77,7 +79,8 @@
       "author": "https://www.reddit.com/user/swolar/",
       "source_link": "https://www.reddit.com/r/technicalfactorio/comments/f3nje7/10k_spm_bot_base/",
       "factorio_version": "0.17.79",
-      "sha256": "c1ec9a5d8f980995d008376ec49a4599ed91378b9f1302d9e10785e4d2b7b96c"
+      "sha256": "c1ec9a5d8f980995d008376ec49a4599ed91378b9f1302d9e10785e4d2b7b96c",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/bot+cell+10kspm+LE.zip"
     },
     {
       "name": "flame_Sla bots 10000=54x187spm.zip",
