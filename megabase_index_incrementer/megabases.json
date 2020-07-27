@@ -8,6 +8,13 @@
       "sha256": "e8346b825adb2059de4710e1aa9431f97fb40026c375b0de8ea126a5f8b254f4"
     },
     {
+      "name": "106k.zip",
+      "author": "https://www.reddit.com/user/Thundorgun/",
+      "source_link": "https://www.reddit.com/r/factorio/comments/78fd61/a_slightly_different_way_to_build_really_big/",
+      "factorio_version": "0.15.37",
+      "sha256": "252d4f04450274e032186cdc7e78cfd1e2ecdb01ced7a91db9843eb01111ca32"
+    },
+    {
       "name": "10k spm modular.zip",
       "author": "https://www.reddit.com/user/swolar/",
       "source_link": "https://www.reddit.com/r/factorio/comments/b3x15f/10000_spm_modular_megabase_60ups/",
@@ -21,6 +28,13 @@
       "source_link": "https://www.reddit.com/r/factorio/comments/98qruz/10k_spm_ups_optimized_train_megabase/",
       "factorio_version": "0.16.51",
       "sha256": "902be29ceaff4afc6da5e7adc6c5e447762669022238fadccdc1a35cac18b303"
+    },
+    {
+      "name": "2017easy-16.zip",
+      "author": "https://www.reddit.com/user/darkland52/",
+      "source_link": "https://www.reddit.com/r/factorio/comments/7dx1h2/2760_spm_60_ups_vanilla_no_mods_default_settings/",
+      "factorio_version": "0.15.37",
+      "sha256": "590400bb6648b31b920400f90a404f710f4a5b3f53b66f36e1d5116399318c84"
     },
     {
       "name": "20k spm hybrid-modular.zip",
