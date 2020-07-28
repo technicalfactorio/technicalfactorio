@@ -25,7 +25,7 @@ pub struct MegabaseMetadata {
     pub download_link_mirror: Option<String>,
 }
 
-#[derive(Debug, Default, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Ord)]
+#[derive(Debug, Default, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Ord, Hash)]
 #[serde(into = "String")]
 #[serde(try_from = "&str")]
 pub struct FactorioVersion {
