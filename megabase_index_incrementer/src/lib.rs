@@ -35,7 +35,7 @@ pub struct FactorioVersion {
 }
 
 impl FactorioVersion {
-    pub fn new(major: u16, minor: u16, patch: u16) -> Self {
+    pub const fn new(major: u16, minor: u16, patch: u16) -> Self {
         FactorioVersion {
             major,
             minor,
