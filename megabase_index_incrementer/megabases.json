@@ -52,6 +52,14 @@
       "sha256": "fc8caba87fdcf1c4fad41fab0039b8e924b17637c32cf1979f0c86764c4e954f"
     },
     {
+      "name": "Community_map_july_2020.zip",
+      "author": "https://www.reddit.com/user/Stevetrov/",
+      "source_link": "https://www.reddit.com/r/factorio/comments/i3smnr/58k_megabase_built_the_old_school_way_wo_editor/",
+      "factorio_version": "0.18.38",
+      "sha256": "f77f88042b6b309b999ebac4c3fe72ddc07f41a7e99d5df8a6e0234456ad2e07",
+      "download_link_mirror": "https://f000.backblazeb2.com/file/megabase-mirror/Community_map_july_2020.zip"
+    },
+    {
       "name": "Factorio Spaghetti world with P0ober Ep40.zip",
       "author": "Soelless Gaming",
       "source_link": "https://www.youtube.com/watch?v=yUUT3C2Xevc",
