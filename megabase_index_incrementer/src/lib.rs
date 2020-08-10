@@ -30,8 +30,8 @@ fn find_savefile(path: &Path) -> PathBuf {
     } else {
         eprintln!("Could not find file {:?}. Searched {:?}, trying current dir",
             path, maybe_path);
-        if let Ok(path) = std::env::current_dir() {
-            maybe_path = path.join(&path);
+        if let Ok(current_dir) = std::env::current_dir() {
+            maybe_path = current_dir.join(&path);
             if maybe_path.exists() {
                 return maybe_path;
             }
