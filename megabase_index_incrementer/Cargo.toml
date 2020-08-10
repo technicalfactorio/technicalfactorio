@@ -1,13 +1,13 @@
 [package]
 name = "megabase_index_incrementer"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["mulark <mulark11@gmail.com>"]
 edition = "2018"
 license = "MIT"
 
 [features]
 default = ["bin"]
-bin = ["directories", "sha2", "regex", "ureq"]
+bin = ["regex", "ureq"]
 
 [lib]
 name = "megabase_index_incrementer"
@@ -18,8 +18,8 @@ name = "megabase_index_incrementer_bin"
 path = "src/main.rs"
 
 [dependencies]
-directories = {version = "*", optional = true}
-sha2 = {version = "*", optional = true}
+directories = {version = "*"}
+sha2 = {version = "*"}
 serde = {version = "*", features = ["derive"]}
 serde_json = "*"
 regex = {version = "*", optional = true}
