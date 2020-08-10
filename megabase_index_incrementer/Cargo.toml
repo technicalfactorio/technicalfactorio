@@ -1,6 +1,6 @@
 [package]
 name = "megabase_index_incrementer"
-version = "0.2.3"
+version = "0.3.0"
 authors = ["mulark <mulark11@gmail.com>"]
 edition = "2018"
 license = "MIT"

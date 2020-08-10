@@ -1,34 +1,25 @@
 //! Application to quickly index megabases.
 
-use std::convert::TryInto;
-use std::path::Path;
+use crate::lib::populate_metadata;
 use std::path::PathBuf;
-use std::io;
-use std::io::Read;
 use std::io::stdin;
-use std::fs::File;
 
 use std::io::Write;
 
-use sha2::Digest;
-
-use directories::BaseDirs;
 
 mod lib;
 use lib::MegabaseMetadata;
 use lib::Megabases;
-use lib::FactorioVersion;
 
-fn main() -> io::Result<()> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         upgrade_existing_metadatas().unwrap();
-        let mut metadata = MegabaseMetadata::default();
         let mut s = String::new();
         println!("Enter a base source link for the post describing the megabase.");
         stdin().read_line(&mut s)?;
-        metadata.author = Some(check_url_alive_get_author(&s).unwrap());
+        let author = Some(check_url_alive_get_author(&s).unwrap());
         s = s.trim().to_string();
-        metadata.source_link = s.clone();
+        let source_link = s.clone();
         s.clear();
         println!("Enter the name of the savefile (.zip not required nor forbidden)");
         stdin().read_line(&mut s)?;
@@ -40,17 +31,11 @@ fn main() -> io::Result<()> {
         } else {
             PathBuf::from(filename)
         };
-        metadata.name = filepath.file_name().unwrap().to_string_lossy().to_string();
-        let savefile_path = find_savefile(&filepath);
-        s.clear();
-        let jh = {
-            let savefile_path = savefile_path.clone();
-            std::thread::spawn(move || {
-                sha256sum(&savefile_path)
-            })
-        };
-        metadata.factorio_version = run_factorio_and_find_savefile_version(&savefile_path);
-        metadata.sha256 = jh.join().unwrap();
+        let mut metadata = populate_metadata(&filepath)?;
+
+        metadata.author = author;
+        metadata.source_link = source_link;
+
         eprintln!("{:#?}", metadata);
         eprintln!("Name|Link|Factorio Version|sha256");
         eprintln!("{}|{}|{}|{}",
@@ -120,111 +105,6 @@ fn upgrade_existing_metadatas() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-pub fn sha256sum(file_path: &PathBuf) -> String {
-    let mut f = File::open(file_path).unwrap();
-    let mut buf = Vec::new();
-    f.read_to_end(&mut buf).unwrap();
-    format!("{:x}", sha2::Sha256::digest(&buf))
-}
-
-fn find_factorio_install() -> PathBuf {
-    let possible_install = if cfg!(target_os = "linux") {
-        let base_dir = BaseDirs::new().unwrap();
-        base_dir
-            .home_dir()
-            .join(".local")
-            .join("share")
-            .join("Steam")
-            .join("steamapps")
-            .join("common")
-            .join("Factorio")
-            .join("")
-    } else {
-        PathBuf::from("C:\\")
-            .join("Program Files (x86)")
-            .join("Steam")
-            .join("steamapps")
-            .join("common")
-            .join("Factorio")
-            .join("")
-    };
-    if possible_install.exists() {
-        println!("Found steam version installed");
-        possible_install
-    } else {
-        unimplemented!("Could not find Factorio install, only looked for steam version");
-    }
-}
-
-fn find_factorio_rw_dir() -> PathBuf {
-    let cfg_path = find_factorio_install().join("config-path.cfg");
-    let mut use_system_rw_directories = true;
-    if cfg_path.exists() {
-        let cfg_file = std::fs::read_to_string(&cfg_path).unwrap();
-        for line in cfg_file.lines() {
-            if line.starts_with("use-system-read-write-data-directories=") {
-                let val = line.split('=').nth(1).unwrap();
-                use_system_rw_directories = val.parse::<bool>().unwrap_or(true);
-                break;
-            }
-        }
-    }
-    if use_system_rw_directories {
-        if cfg!(target_os = "linux") {
-            // ~/.factorio/
-            BaseDirs::new()
-                .unwrap()
-                .home_dir()
-                .join(".factorio")
-                .join("")
-        } else {
-            // %appdata%\Roaming\
-            BaseDirs::new()
-                .unwrap()
-                .data_dir()
-                .join("Factorio")
-                .join("")
-        }
-    } else {
-        // Probably local install
-        find_factorio_install()
-    }
-}
-
-fn find_savefile(path: &PathBuf) -> PathBuf {
-    if path.is_absolute() && path.exists() {
-        return path.to_owned();
-    }
-    let rw_saves = find_factorio_rw_dir().join("saves");
-    let mut maybe_path = rw_saves.join(&path);
-    if maybe_path.exists() {
-        maybe_path
-    } else {
-        eprintln!("Could not find file {:?}. Searched {:?}, trying current dir",
-            path, maybe_path);
-        if let Ok(path) = std::env::current_dir() {
-            maybe_path = path.join(&path);
-            if maybe_path.exists() {
-                return maybe_path;
-            }
-        }
-        panic!("Could not find file in current dir");
-    }
-}
-
-/// Attempts to look for the Factorio Executable, panics if it can't find it
-fn factorio_exe() -> PathBuf {
-    let p = if cfg!(target_os = "linux") {
-        find_factorio_install().join("bin").join("x64").join("factorio")
-    } else {
-        find_factorio_install().join("bin").join("x64").join("factorio.exe")
-    };
-    if p.exists() {
-        return p;
-    }
-    panic!("Could not find Factorio Executable!");
-}
-
 /// Tests if a url is available
 fn check_url_alive_get_author(url: &str) -> Result<String, Box<dyn std::error::Error>> {
     if url.contains("reddit.com") {
@@ -277,31 +157,6 @@ fn check_url_alive_get_author(url: &str) -> Result<String, Box<dyn std::error::E
         }
     }
 }
-
-fn run_factorio_and_find_savefile_version(savefile: &Path) -> FactorioVersion {
-    println!("Determining saved Factorio version");
-    let out = std::process::Command::new(factorio_exe())
-        .arg("--benchmark")
-        .arg(savefile)
-        .arg("--benchmark-ticks")
-        .arg(1.to_string())
-        .arg("--benchmark-runs")
-        .arg(1.to_string())
-        .output();
-    let stdout = String::from_utf8(out.unwrap().stdout).unwrap().replace("\r", "");
-    for line in stdout.lines().rev() {
-        if line.contains("Map version ") {
-            // get rid of everything before the version
-            let trim_begin = line.split("Map version ").nth(1).unwrap();
-            let version_str = trim_begin.split('-').next().unwrap();
-            if let Ok(version) = version_str.try_into() {
-                return version;
-            }
-        }
-    }
-    panic!("Could not determine version for savefile!");
-}
-
 
 #[cfg(test)]
 mod tests {
