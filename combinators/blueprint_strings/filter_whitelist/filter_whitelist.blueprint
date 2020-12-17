@@ -1,12 +1,1 @@
-# Whitelist Signal Filter
-
-```
 0eNrtmE2PmzAQhv9K5GMLq5jwkaB2pUo999pDVSFCJhtrwSBjskUR/71jkrAkgRTTVTaHvUSxGb8ezzP2GHZkGReQCcYl8XeERSnPif9rR3L2xMNY9ckyA+ITJiEhBuFholoriNgKhBmlyZLxUKaCVAZhfAV/iE8ro0Ngy4QssKfR2FuYP1sjreq3QYBLJhns/agbZcCLZAkCpa95YJAszXFoytW0KGdarvvgGKTEvzad4jy4PinSOFjCJtwyHIOGB6UAn63q0bnqXTORy2DwKiCMNmQ/QS5DFc2paiRZKGrffPIFx6SFzIpRqlmJ/hVcBmuRJgHjKEN8KQqo9pNyiBrXqfoRsGoHkGHLQksmooLJulljaj22Tx/XLJ4EAD/X8S4M0QdLTdppbp2bn047w+FVq++I2tJF7bwbatOitmfPZ649P4P+9d2h03PofVRdPar00ryL4qxZXQIrViQmxOi0YJGZpTH8iyN9cHpW+j8+2Y1PoWByk4BEdwafI9N5T3K9ir1NfuWgZIKeNEszwCSrfSSfR2eZRiI5F4l0zI8hWWdc0+oD5YwA5d0DKHrK59Mt+NjXQz6/ysseBsQdAcS+AyCzMyCPj29OZEilPGey0KuctIeKN4KKcwdUmuPMO6Xz7cf32+Bxe4+0IeWlD8e88ey4VI0zyzlWvAscaxZLED23876gqK1e6xUq4HTkFX0fjVcdk7Zu7DpC6mWjpdNOgIPeTEuvhDhOX9qetUvkQdLWknzZ4JtOl49uI+joBq/s9PB10a6WYFSGbRjUmjVCniaNMHruTo99tRh/M+jaFwvtfWF/7IuPfXH7fZExrr0thtaXSr1/1d9S/NanF4PE4RLQt0M2T+poxyyXE2uCBfgZLbaY5PXusOYqUgvP9ejUddyq+gv+ovmO
-```
-
-The left input is the "filter" input, while the right is the "value" input. The
-output is all the values on the value input for which the filter is non-zero.
-
-This is a fully pipelined design with two ticks latency. It supports all 2^32
-possible values on either input.
-
