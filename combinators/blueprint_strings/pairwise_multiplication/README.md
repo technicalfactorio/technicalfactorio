@@ -21,6 +21,6 @@ Inner workings:
 ```
 AB = (A^2 + B^2) / -2 + (A+B)^2 / 2
 -2AB = A^2 + B^2 - (A+B)^2
--2AB = A^2 + B^2 -A^2 -2AB -B^2)
+-2AB = A^2 + B^2 - A^2 - 2AB - B^2
 -2AB = -2AB
 ```
