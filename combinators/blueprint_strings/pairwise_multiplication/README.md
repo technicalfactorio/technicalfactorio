@@ -1,7 +1,7 @@
 # Pairwise multipliction
 
 Takes a full frame of inputs on both the red and green input wires and
-multiplies each of the respective signals together. (A1*A2, B1*B2, etc)
+multiplies each of the respective signals together. (`A1*A2`, `B1*B2`, etc)
 
 Outputs the results as a full frame of the respective signals.
 
