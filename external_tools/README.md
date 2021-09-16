@@ -5,6 +5,7 @@
 *   [Custom digit generator](https://tij.men/factorio/blueprint-tools/custom-digits/)
 *   [Autotorio](https://autotorio.com/) - blueprint manipulator
 *   [Factorio Blueprint Tools](https://christoph-frick.github.io/factorio-blueprint-tools/) - another blueprint manipulator
+*   [Circular wall generator script](https://gist.github.com/StoneLabs/9f50215475f30440de5c15ebcc1900d9) (knowledge on how to run python scripts required)
 
 ## Balancer testers
 
