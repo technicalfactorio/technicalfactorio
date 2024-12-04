@@ -6,11 +6,13 @@
 *   [Autotorio](https://autotorio.com/) - blueprint manipulator
 *   [Factorio Blueprint Tools](https://christoph-frick.github.io/factorio-blueprint-tools/) - another blueprint manipulator
 *   [Circular wall generator script](https://gist.github.com/StoneLabs/9f50215475f30440de5c15ebcc1900d9) (knowledge on how to run python scripts required)
+*   [Factorio-SAT](https://github.com/R-O-C-K-E-T/Factorio-SAT) - for fitting balancer networks within a certain footprint
 
 ## Balancer testers
 
 *   [factorio_balancers](https://github.com/tzwaan/factorio_balancers) (Python)
 *   [FactorioSimulation](https://github.com/d4rkc0d3r/FactorioSimulation/releases) (C++ & Cuda)
+*   [VeriFactory](https://github.com/alegnani/verifactory) (Rust, no 2.0 yet)
 
 ## Ratio calculators
 
