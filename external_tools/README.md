@@ -27,3 +27,4 @@
 
 *   [The Factorio Benchmark Website](https://mulark.github.io/) - large collection of documented UPS test cases
 *   [FactorioBox](https://factoriobox.1au.us/) - benchmarking tool to benchmark hardware against factorio maps and versions
+*   [B.E.L.T.](https://github.com/florishafkenscheid/belt/) - benchmark factorio save files against eachother
